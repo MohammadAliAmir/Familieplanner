@@ -22,6 +22,7 @@ public class StartFrame extends javax.swing.JFrame {
     private ArrayList<User2> users;
     private ArrayList<Groep> groepen;
     public StartFrame(ArrayList<User2> users, ArrayList<Groep> groepen) {
+        //setLocationRelativeTo(null);
         initComponents();
         this.users = users;
         this.groepen=groepen;
@@ -42,6 +43,8 @@ public class StartFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton1.setText("Aanmelden");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -76,42 +79,45 @@ public class StartFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(67, 67, 67)
+                .addComponent(jButton2)
+                .addGap(187, 187, 187))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(jLabel1))
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(168, 168, 168)
-                                .addComponent(jButton2)))))
-                .addContainerGap(116, Short.MAX_VALUE))
+                        .addGap(209, 209, 209)
+                        .addComponent(jLabel1)))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(83, 83, 83))
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         JFrame login = new loginframe(users,groepen);
         setVisible(false);
+        login.setLocationRelativeTo(null);
         login.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -119,6 +125,7 @@ public class StartFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         JFrame registreer = new RegisterFrame(users,groepen);
         setVisible(false);
+        registreer.setLocationRelativeTo(null);
         registreer.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
