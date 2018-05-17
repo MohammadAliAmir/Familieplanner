@@ -25,6 +25,7 @@ public class StemPoll extends javax.swing.JFrame {
     
     public StemPoll(Poll poll, ArrayList<User2> users,ArrayList<Groep> groepen, User2 user, ArrayList<Poll>polls) {
         initComponents();
+        setResizable(false);
         
         this.poll=poll;
         this.users=users;
@@ -56,12 +57,22 @@ public class StemPoll extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Stem op de poll");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 388, -1));
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("vraag");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 394, -1));
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("jRadioButton1");
@@ -70,12 +81,15 @@ public class StemPoll extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 95, -1, -1));
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("jRadioButton2");
+        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 122, -1, -1));
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setText("jRadioButton3");
+        getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 153, -1, -1));
 
         jButton1.setText("Breng stem uit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -83,51 +97,14 @@ public class StemPoll extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 196, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel2))
-                            .addComponent(jButton1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jRadioButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jRadioButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jRadioButton3)))
-                .addGap(131, 131, 131))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel2)
-                .addGap(20, 20, 20)
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(60, 60, 60))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/famillieplanner/java9.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -141,7 +118,7 @@ public class StemPoll extends javax.swing.JFrame {
            poll.voegGestemdToe(user);
            }
            else{
-               JOptionPane.showMessageDialog(this, "u heeft reeds gestemd op deze poll");
+               JOptionPane.showMessageDialog(this, "u heeft reeds gestemd op deze poll", "Famillieplanner", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("pictures/error.png"));
            }
        }
        else if(jRadioButton2.isSelected()){
@@ -150,7 +127,7 @@ public class StemPoll extends javax.swing.JFrame {
            poll.voegGestemdToe(user);
            }
            else{
-               JOptionPane.showMessageDialog(this, "u heeft reeds gestemd op deze poll");
+               JOptionPane.showMessageDialog(this, "u heeft reeds gestemd op deze poll", "Famillieplanner", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("pictures/error.png"));
            }
        }
        else if(jRadioButton3.isSelected()){
@@ -159,11 +136,11 @@ public class StemPoll extends javax.swing.JFrame {
            poll.voegGestemdToe(user);
            }
            else{
-               JOptionPane.showMessageDialog(this, "u heeft reeds gestemd op deze poll");
+               JOptionPane.showMessageDialog(this, "u heeft reeds gestemd op deze poll", "Famillieplanner", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("pictures/error.png"));
            }
        }
        else{
-        JOptionPane.showMessageDialog(this,"U heeft geen antwoord geselecteerd uitgebracht");
+        JOptionPane.showMessageDialog(this, "U heeft geen antwoord aangeduid", "Famillieplanner", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("pictures/error.png"));
        }
        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -208,6 +185,7 @@ public class StemPoll extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;

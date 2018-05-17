@@ -16,11 +16,9 @@ import javax.swing.JFrame;
 
 public class Famillieplanner {
 
-    //blablabla
     /**
      * @param args the command line arguments
      */
-    //test voor branch cedric
     static User2 user;
     static ArrayList<User2> users = new ArrayList<>();
     static ArrayList<Taak> taken = new ArrayList<>();

@@ -15,6 +15,7 @@ public class Taak {
     private String beschrijving;
     private String deadline;
     private boolean volbracht;
+    private int status=0;
     
     public Taak(String p, String b, String d)
     {
@@ -26,6 +27,7 @@ public class Taak {
     public void beeindigTaak()
     {
         volbracht=true;
+        status=1;
     }
     
     public void printTaak()
@@ -46,5 +48,9 @@ public class Taak {
     public String getDeadline()
     {
         return deadline;
+    }
+    
+    public int getStatus(){
+        return status;
     }
 }

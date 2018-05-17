@@ -9,11 +9,16 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.awt.*;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JList;
+import javax.swing.*;
 
 /**
  *
  * @author Yasin
  */
+
 public class StopTaak extends javax.swing.JFrame {
 
     /**
@@ -25,6 +30,7 @@ public class StopTaak extends javax.swing.JFrame {
     private User2 user;
     public StopTaak(User2 user, ArrayList<Taak> takenlijst,ArrayList<User2> users,ArrayList<Groep> groepen) {
         initComponents();
+        setResizable(false);
         this.user=user;
         this.takenlijst=takenlijst;
         this.users=users;
@@ -32,9 +38,14 @@ public class StopTaak extends javax.swing.JFrame {
         DefaultListModel dlm = new DefaultListModel();
         for(Taak taak : takenlijst)
         {
-            dlm.addElement(taak.getBeschrijving());
+            dlm.addElement(taak.getBeschrijving());    
         }
         jList1.setModel(dlm);
+        
+        //jList1.setCellRenderer(new CellRendererColor()); 
+        //jList1.setSelectionBackground(Color.red);
+        
+        
     }
 
     /**
@@ -46,6 +57,8 @@ public class StopTaak extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
@@ -54,10 +67,29 @@ public class StopTaak extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Welke taak wilt u beëindigen?");
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Taken bekijken");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 22, 499, 24));
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -66,12 +98,15 @@ public class StopTaak extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 52, 81, 132));
+
         jButton1.setText("Terug");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 152, 83, -1));
 
         jButton2.setText("Beeindig");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +114,7 @@ public class StopTaak extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 52, -1, -1));
 
         jButton3.setText("Bekijk");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -91,50 +127,19 @@ public class StopTaak extends javax.swing.JFrame {
                 jButton3KeyPressed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 102, 83, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(257, 257, 257)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton2)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton1)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton3))))
-                .addContainerGap(219, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 52, -1, 132));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/famillieplanner/java9.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 220));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -152,11 +157,16 @@ public class StopTaak extends javax.swing.JFrame {
             {
                 if(taak.getVerantwoordelijke().equals(user.getNaam()))
                 {
-                    taak.beeindigTaak();
-                    JOptionPane.showMessageDialog(this,"Taak Beëindigt.");
+                    if(taak.getStatus()==0){
+                        taak.beeindigTaak();
+                        JOptionPane.showMessageDialog(this, "Taak succesvol beeindigt", "Famillieplanner", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("pictures/check.png"));
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "Taak is al Beëindigt", "Famillieplanner", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("pictures/error.png"));
+                    }
                 }
                 else{
-                    JOptionPane.showMessageDialog(this,"U heeft hier niet toe de machtiging.");
+                    JOptionPane.showMessageDialog(this, "U bent niet de aangeduidde persoon voor deze taak", "Famillieplanner", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("pictures/error.png"));
                 }
             }
         }
@@ -171,8 +181,15 @@ public class StopTaak extends javax.swing.JFrame {
         {
             if(taak.getBeschrijving().equals(jList1.getSelectedValue()))
             {
-                String str= "Verantwoordelijke : "+taak.getVerantwoordelijke()+"\nBeschrijving : "+taak.getBeschrijving()+"\nDeadline : "+taak.getDeadline()+"\n";
-                jTextArea1.insert(str,0);
+                String volbracht;
+                if(taak.getStatus()==1){
+                    volbracht ="Ja";
+                }
+                else{
+                    volbracht = "Nee";
+                }
+                String str= "Verantwoordelijke : "+taak.getVerantwoordelijke()+"\nBeschrijving : "+taak.getBeschrijving()+"\nDeadline : "+taak.getDeadline()+"\nVolbracht: "+volbracht;
+                jTextArea1.setText(str);
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -221,9 +238,42 @@ public class StopTaak extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
+
+class CellRendererColor extends DefaultListCellRenderer {         
+        public Component getListCellRendererComponent( JList list, Object value, int index, boolean isSelected, boolean cellHasFocus ) {  
+            Component c = super.getListCellRendererComponent( list, value, index, isSelected, cellHasFocus );  
+            ListModel<Taak> dlm = list.getModel();
+               if(dlm.getElementAt(index).getStatus()==1){
+                c.setBackground( Color.green );  //yellow every even row
+               }
+               else{
+                   c.setBackground(Color.red);
+               }
+            return c;  
+        }  
+    }  
+
+class CellRendererColor2 extends DefaultListCellRenderer {         
+        public Component getListCellRendererComponent( JList list, Object value, int index, boolean isSelected, boolean cellHasFocus ) {  
+            Component c = super.getListCellRendererComponent( list, value, index, isSelected, cellHasFocus );  
+            ArrayList<Taak> taken = (ArrayList<Taak>) list.getSelectedValue();
+            for(int i=0;i<taken.size();i++){
+            if(taken.get(i).getStatus()==1){
+                c.setBackground( Color.green );  
+            }
+            else{
+                c.setBackground( Color.red );
+            }
+            }
+            return c;  
+        }  
+    }

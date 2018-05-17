@@ -18,6 +18,7 @@ public class Groep {
     private ArrayList<User2> groepleden;
     private ArrayList<Poll> polls;
     private User2 admin;
+    private ArrayList<Event> events;
     
     public Groep(String n, String b)
     {
@@ -26,6 +27,7 @@ public class Groep {
         taken = new ArrayList<Taak>();
         groepleden= new ArrayList<User2>();
         polls = new ArrayList<Poll>();
+        events = new ArrayList<Event>();
     }
     public String getNaam()
     {
@@ -42,6 +44,10 @@ public class Groep {
     
     public ArrayList getPolls(){
         return polls;
+    }
+    
+    public ArrayList getEvents(){
+        return events;
     }
     
     public void addToGroep(User2 u)
